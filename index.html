@@ -2,32 +2,37 @@
 <html>
 <head>
   <style>
-    /* Make the container fill the viewport and set the background color to black */
+    /* Make the page take the full viewport and set background to black */
     html, body {
       height: 100%;
       margin: 0;
+      overflow: hidden; /* Prevents scrolling */
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: black;
-      font-family: 'Futura', sans-serif; /* Apply Futura font with fallback */
+      font-family: 'Futura', 'Trebuchet MS', sans-serif;
     }
 
-    /* Center the video within the container */
+    /* Style the container to fill the viewport */
     #video-container {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    /* Ensure the video scales responsively */
+    /* Make the video fill the screen without cropping */
     #video-background {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100vw;
+      height: 100vh;
+      object-fit: fill; /* Ensures the video stretches to fit exactly */
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
-    /* Style for the minimalist center button */
+    /* Center button */
     .center-button {
       position: absolute;
       top: 50%;
@@ -44,17 +49,13 @@
       text-align: center;
     }
 
-    .center-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Style for the minimalist bottom-left button */
+    /* Bottom left button */
     .bottom-left-button {
       position: absolute;
       bottom: 20px;
       left: 20px;
       color: white;
-      font-size: 18px;
+      font-size: 16px;
       text-decoration: none;
       padding: 5px 15px;
       border: 2px solid white;
@@ -63,17 +64,13 @@
       font-weight: bold;
     }
 
-    .bottom-left-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Style for the minimalist bottom-right button with TikTok logo */
+    /* Bottom right button */
     .bottom-right-button {
       position: absolute;
       bottom: 20px;
       right: 20px;
       color: white;
-      font-size: 18px;
+      font-size: 16px;
       text-decoration: none;
       padding: 5px 15px;
       border: 2px solid white;
@@ -84,23 +81,18 @@
       align-items: center;
     }
 
-    /* Add TikTok logo */
     .bottom-right-button img {
-      width: 20px; /* Adjust size of the logo */
-      margin-right: 8px; /* Space between logo and text */
+      width: 20px;
+      margin-right: 8px;
     }
 
-    .bottom-right-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Style for the minimalist top-right button with "?" leading to WhatsApp */
+    /* Top right button */
     .top-right-button {
       position: absolute;
       top: 20px;
       right: 20px;
       color: white;
-      font-size: 18px;
+      font-size: 24px;
       text-decoration: none;
       padding: 8px 12px;
       border: 2px solid white;
@@ -109,33 +101,29 @@
       font-weight: bold;
       text-align: center;
     }
-
-    .top-right-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
   </style>
 </head>
 <body>
   <div id="video-container">
-    <video id="video-background" preload="metadata" autoplay muted loop>
+    <!-- Video with sound, autoplay, and loop -->
+    <video id="video-background" autoplay loop>
       <source src="Silent silver swells gently roll beneath.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     
-    <!-- Minimalist Center Button -->
+    <!-- Center Button -->
     <a href="https://www.amazon.com" class="center-button">Buy our Paper</a>
     
-    <!-- Minimalist Bottom-Left Button (Instagram) -->
+    <!-- Bottom-Left Button (Instagram) -->
     <a href="https://www.instagram.com/jonoallenphotography" class="bottom-left-button">@jonoallenphotography</a>
     
-    <!-- Minimalist Bottom-Right Button (TikTok with logo) -->
+    <!-- Bottom-Right Button (TikTok) -->
     <a href="https://www.tiktok.com" class="bottom-right-button">
-      <img src="tik-tok.png" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo_2023.svg" alt="TikTok Logo">
       TikTok
     </a>
     
-    <!-- Minimalist Top-Right Button (?) linking to WhatsApp chat -->
+    <!-- Top-Right Button (WhatsApp) -->
     <a href="https://wa.me/447946972623" class="top-right-button">?</a>
   </div>
 </body>
