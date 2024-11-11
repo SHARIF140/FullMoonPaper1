@@ -9,30 +9,29 @@
       background-color: black;
       font-family: 'Futura', 'Trebuchet MS', sans-serif; /* Apply Futura font with fallback */
       overflow: hidden; /* Prevents scrolling */
-    }
-
-    /* Video container fills viewport */
-    #video-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Ensure the video scales responsively and fills the entire viewport */
-    #video-background {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover; /* Covers the screen without stretching */
-      position: absolute;
-      top: 0;
-      left: 0;
+    /* Video container fills viewport */
+    #video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Style for the minimalist center button */
+    /* Portrait video settings */
+    #video-background {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Center button styles */
     .center-button {
       position: absolute;
       top: 50%;
@@ -53,11 +52,11 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Style for the minimalist bottom-left button */
+    /* Bottom-left button styles */
     .bottom-left-button {
       position: absolute;
-      bottom: 10px;
-      left: 10px;
+      bottom: 20px;
+      left: 20px;
       color: white;
       font-size: 18px;
       text-decoration: none;
@@ -72,11 +71,11 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Style for the minimalist bottom-right button with TikTok logo */
+    /* Bottom-right button with TikTok logo */
     .bottom-right-button {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
+      bottom: 20px;
+      right: 20px;
       color: white;
       font-size: 18px;
       text-decoration: none;
@@ -89,21 +88,20 @@
       align-items: center;
     }
 
-    /* Add TikTok logo */
     .bottom-right-button img {
-      width: 20px; /* Adjust size of the logo */
-      margin-right: 8px; /* Space between logo and text */
+      width: 20px;
+      margin-right: 8px;
     }
 
     .bottom-right-button:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Style for the minimalist top-right button with "?" leading to WhatsApp */
+    /* Top-right button */
     .top-right-button {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
       color: white;
       font-size: 18px;
       text-decoration: none;
@@ -118,6 +116,14 @@
     .top-right-button:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      #video-background {
+        width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,19 +133,19 @@
       Your browser does not support the video tag.
     </video>
     
-    <!-- Minimalist Center Button -->
+    <!-- Center button -->
     <a href="https://www.amazon.com" class="center-button">Buy our Paper</a>
     
-    <!-- Minimalist Bottom-Left Button (Instagram) -->
+    <!-- Bottom-left button (Instagram) -->
     <a href="https://www.instagram.com/jonoallenphotography" class="bottom-left-button">@jonoallenphotography</a>
     
-    <!-- Minimalist Bottom-Right Button (TikTok with logo) -->
+    <!-- Bottom-right button (TikTok with logo) -->
     <a href="https://www.tiktok.com" class="bottom-right-button">
       <img src="tik-tok.png" alt="TikTok Logo">
       TikTok
     </a>
     
-    <!-- Minimalist Top-Right Button (?) linking to WhatsApp chat -->
+    <!-- Top-right button (?) linking to WhatsApp chat -->
     <a href="https://wa.me/447946972623" class="top-right-button">?</a>
   </div>
 </body>
