@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>
-    /* Make the page take the full viewport and set background to black */
+    /* Full page layout with black background */
     html, body {
       height: 100%;
       margin: 0;
@@ -14,7 +14,7 @@
       font-family: 'Futura', 'Trebuchet MS', sans-serif;
     }
 
-    /* Style the container to fill the viewport */
+    /* Video container fills viewport */
     #video-container {
       position: relative;
       width: 100vw;
@@ -22,11 +22,11 @@
       overflow: hidden;
     }
 
-    /* Make the video fill the screen without cropping */
+    /* Video fits screen as much as possible without stretching */
     #video-background {
-      width: 100vw;
-      height: 100vh;
-      object-fit: fill; /* Ensures the video stretches to fit exactly */
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Preserves aspect ratio while filling screen */
       position: absolute;
       top: 0;
       left: 0;
@@ -105,8 +105,8 @@
 </head>
 <body>
   <div id="video-container">
-    <!-- Video with sound, autoplay, and loop -->
-    <video id="video-background" autoplay loop>
+    <!-- Video with sound muted, autoplay, and loop -->
+    <video id="video-background" autoplay muted loop>
       <source src="Silent silver swells gently roll beneath.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
