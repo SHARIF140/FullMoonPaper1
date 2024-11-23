@@ -1,152 +1,166 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
   <style>
-    /* Make the container fill the viewport and set the background color to black */
+    /* General styles for both pages */
     html, body {
       height: 100%;
       margin: 0;
-      background-color: black;
-      font-family: 'Futura', 'Trebuchet MS', sans-serif; /* Apply Futura font with fallback */
-      overflow: hidden; /* Prevents scrolling */
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: black;
+      font-family: 'Forum', sans-serif;
+      color: white;
+      text-align: center;
     }
 
-    /* Video container fills viewport */
+    /* Video container styles */
     #video-container {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
     }
 
-    /* Portrait video settings */
+    /* Make the video fill the entire screen while preserving aspect ratio */
     #video-background {
-      width: auto;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Center button styles */
-    .center-button {
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video fills the screen without distorting */
       transform: translate(-50%, -50%);
-      color: white;
-      font-size: 20px;
+    }
+
+    /* Button styles */
+    .center-button, .bottom-left-button, .bottom-right-button, .top-right-button, .whatsapp-button {
+      position: absolute;
       text-decoration: none;
+      font-size: 30px; /* Adjusted font size */
       padding: 10px 20px;
       border: 2px solid white;
       border-radius: 25px;
       background: transparent;
+      color: white;
+      font-family: 'Forum', sans-serif; /* Ensures "Forum" font is applied */
       font-weight: bold;
       text-align: center;
     }
 
-    .center-button:hover {
+    .center-button:hover, .bottom-left-button:hover, .bottom-right-button:hover, .top-right-button:hover, .whatsapp-button:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Bottom-left button styles */
+    /* Button positions */
+    .center-button {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     .bottom-left-button {
-      position: absolute;
       bottom: 20px;
       left: 20px;
-      color: white;
-      font-size: 18px;
-      text-decoration: none;
-      padding: 5px 15px;
-      border: 2px solid white;
-      border-radius: 25px;
-      background: transparent;
-      font-weight: bold;
     }
 
-    .bottom-left-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Bottom-right button with TikTok logo */
     .bottom-right-button {
-      position: absolute;
       bottom: 20px;
       right: 20px;
-      color: white;
-      font-size: 18px;
-      text-decoration: none;
-      padding: 5px 15px;
-      border: 2px solid white;
-      border-radius: 25px;
-      background: transparent;
-      font-weight: bold;
       display: flex;
       align-items: center;
     }
 
     .bottom-right-button img {
-      width: 20px;
+      width: 30px; /* Adjusted icon size for consistency */
       margin-right: 8px;
     }
 
-    .bottom-right-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Top-right button */
     .top-right-button {
-      position: absolute;
       top: 20px;
       right: 20px;
-      color: white;
-      font-size: 18px;
-      text-decoration: none;
-      padding: 8px 12px;
-      border: 2px solid white;
       border-radius: 50%;
-      background: transparent;
-      font-weight: bold;
-      text-align: center;
+      padding: 8px 12px;
     }
 
-    .top-right-button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    /* Content overlay for the WhatsApp page */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: left; /* Align text to the left */
+      color: white;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      max-width: 800px; /* Increased max-width for better readability */
     }
 
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-      #video-background {
-        width: 100%;
-        height: auto;
-      }
+    /* Paragraph on WhatsApp page */
+    .content p {
+      font-size: 30px; /* Increased font size for paragraph */
+      line-height: 1.5; /* Increased line height for readability */
+      margin: 20px 0;
     }
   </style>
 </head>
 <body>
-  <div id="video-container">
-    <video id="video-background" preload="metadata" autoplay muted loop>
-      <source src="Silent silver swells gently roll beneath.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    
-    <!-- Center button -->
-    <a href="https://www.amazon.com" class="center-button">Buy our Paper</a>
-    
-    <!-- Bottom-left button (Instagram) -->
-    <a href="https://www.instagram.com/jonoallenphotography" class="bottom-left-button">@jonoallenphotography</a>
-    
-    <!-- Bottom-right button (TikTok with logo) -->
-    <a href="https://www.tiktok.com" class="bottom-right-button">
-      <img src="tik-tok.png" alt="TikTok Logo">
-      TikTok
-    </a>
-    
-    <!-- Top-right button (?) linking to WhatsApp chat -->
-    <a href="https://wa.me/447946972623" class="top-right-button">?</a>
+  <!-- Main Page -->
+  <div id="main-page">
+    <div id="video-container">
+      <video id="video-background" preload="metadata" autoplay muted loop>
+        <source src="Silent silver swells gently roll beneath.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Buttons on the main page -->
+      <a href="https://www.amazon.com" class="center-button" target="_blank">Buy our Paper</a>
+      <a href="https://www.instagram.com/jonoallenphotography" class="bottom-left-button" target="_blank">@jonoallenphotography</a>
+      <a href="https://www.tiktok.com/@fullmoonnews?_t=8rOMDewVcJ6&_r=1" class="bottom-right-button" target="_blank">
+        <img src="tik-tok.png" alt="TikTok"> TikTok
+      </a>
+      <button class="top-right-button" onclick="showWhatsAppPage()">?</button>
+    </div>
   </div>
+
+  <!-- WhatsApp Page (Initially Hidden) -->
+  <div id="whatsapp-page" style="display: none;">
+    <div id="video-container">
+      <video id="video-background" preload="metadata" autoplay muted loop>
+        <source src="Silent silver swells gently roll beneath.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Content for the WhatsApp page -->
+      <div class="content">
+        <p>
+          <strong>Full Moon Paper</strong> is a PR and marketing company founded by Mr. Wolf in 2024. <br>
+          For advertising enquiries, please send Instagram and other social media links on WhatsApp to Mr. Wolf’s PA, Billy Dower: <br>
+          <strong>+44(0) 7946 972 623</strong>
+        </p>
+        <a class="whatsapp-button" href="https://wa.me/447946972623" target="_blank" style="position: relative;">Message on WhatsApp</a>
+        <button class="whatsapp-button" onclick="showMainPage()" style="position: relative;">Back</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to show the WhatsApp page
+    function showWhatsAppPage() {
+      document.getElementById('main-page').style.display = 'none';
+      document.getElementById('whatsapp-page').style.display = 'flex';
+    }
+
+    // Function to go back to the main page
+    function showMainPage() {
+      document.getElementById('whatsapp-page').style.display = 'none';
+      document.getElementById('main-page').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
